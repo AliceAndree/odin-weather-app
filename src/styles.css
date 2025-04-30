@@ -1,0 +1,6 @@
+@import './reset.css';
+
+body {
+  background: center / cover no-repeat url(./assets/landscape.jpg);
+  height: 100svh;
+}
