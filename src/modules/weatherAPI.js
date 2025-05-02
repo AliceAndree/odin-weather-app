@@ -1,4 +1,4 @@
-const fetchWeatherData = async (location) => {
+export const fetchWeatherData = async (location) => {
   const key = 'GD7P5QXY996SPP994RLADPFMW'; // Todo : hide key in server
   try {
     const response = await fetch(
@@ -12,5 +12,3 @@ const fetchWeatherData = async (location) => {
     return null;
   }
 };
-
-export default fetchWeatherData;
