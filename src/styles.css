@@ -1,5 +1,60 @@
 @import './reset.css';
 
+:root {
+  --gradient-blue: linear-gradient(
+    45deg,
+    hsla(201, 77%, 75%, 1) 0%,
+    hsla(173, 48%, 83%, 1) 100%
+  );
+
+  --transparent-white: hsla(0, 0%, 100%, 0.4);
+}
+
 body {
+  display: flex;
   height: 100svh;
+  background: var(--gradient-blue);
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+  background-color: var(--transparent-white);
+
+  hr {
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px white;
+  }
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-bottom: solid 1px white;
+
+  img {
+    height: 50px;
+    width: 50px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+
+#searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 310px;
+  height: 85px;
+  background-color: var(--transparent-white);
+  border-radius: 5px;
+  margin: 0 auto;
 }

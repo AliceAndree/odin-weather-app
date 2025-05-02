@@ -8,6 +8,14 @@ submitLocation.addEventListener('click', () => {
   getWeatherData(location);
 });
 
+const addLogoImg = async () => {
+  const imgSource = await import('./assets/logo.png');
+  const imgNode = document.querySelector('#logo');
+  imgNode.src = imgSource.default;
+};
+
+addLogoImg();
+
 const getWeatherData = async (location) => {
   const data = await fetchWeatherData(location);
   console.log(data);

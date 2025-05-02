@@ -10,9 +10,28 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="search" name="search-location" id="search-location" />
-    <button id="submit-location">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
+    <div id="sidebar">
+      <div id="title">
+        <img id="logo" src="#" alt="" />
+        <h1>Weather App</h1>
+      </div>
+      <div id="searchbar">
+        <input
+          type="search"
+          name="search-location"
+          id="search-location"
+          placeholder="Search"
+        />
+        <button id="submit-location">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <hr />
+    </div>
+    <div id="container">
+      <div id="current-weather"></div>
+      <div id="hours-weather"></div>
+      <div id="previsions-weather"></div>
+    </div>
   </body>
 </html>
