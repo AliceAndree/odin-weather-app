@@ -21,6 +21,7 @@ const getWeatherData = async (location) => {
   console.log(data);
   getCurrentTemperature(data);
   getCurrentCondition(data);
+  getLocation(data);
   getFeelsLike(data);
   getConditionByHour(data);
   getNextDaysPrevisions(data);
@@ -28,17 +29,26 @@ const getWeatherData = async (location) => {
 
 const getCurrentTemperature = (weatherData) => {
   const currentTemp = weatherData.currentConditions.temp;
-  console.log(`Current Temp: ${currentTemp}`);
+  const currentTempNode = document.querySelector('#current-temperature');
+  currentTempNode.textContent = currentTemp;
 };
 
 const getCurrentCondition = (weatherData) => {
   const currentCondition = weatherData.currentConditions.conditions;
-  console.log(`Current condition: ${currentCondition}`);
+  const currentConditionNode = document.querySelector('#current-condition');
+  currentConditionNode.textContent = currentCondition;
+};
+
+const getLocation = (weatherData) => {
+  const location = weatherData.address;
+  const locationNode = document.querySelector('#location');
+  locationNode.textContent = location;
 };
 
 const getFeelsLike = (weatherData) => {
   const feelsLike = weatherData.currentConditions.feelslike;
-  console.log(`Feels like: ${feelsLike}`);
+  const feelsLikeNode = document.querySelector('#feels-like');
+  feelsLikeNode.textContent = feelsLike;
 };
 
 const getConditionByHour = (weatherData) => {
