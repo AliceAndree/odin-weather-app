@@ -6,6 +6,7 @@ import {
   getCurrentCondition,
   getLocation,
   getFeelsLike,
+  getCurrentIcon,
 } from './modules/currentWeather';
 import { getConditionByHour } from './modules/conditionByHour';
 import { getNextDaysPrevisions } from './modules/nextDaysPrevisions';
@@ -25,4 +26,5 @@ submitLocation.addEventListener('click', async () => {
   getFeelsLike(data);
   getConditionByHour(data);
   getNextDaysPrevisions(data);
+  getCurrentIcon(data);
 });

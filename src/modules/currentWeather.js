@@ -1,3 +1,5 @@
+import { selectWeatherIcon } from './selectWeatherIcon';
+
 export const getCurrentTemperature = (weatherData) => {
   const currentTemp = weatherData.currentConditions.temp;
   const currentTempNode = document.querySelector('#current-temperature');
@@ -20,4 +22,9 @@ export const getFeelsLike = (weatherData) => {
   const feelsLike = weatherData.currentConditions.feelslike;
   const feelsLikeNode = document.querySelector('#feels-like');
   feelsLikeNode.textContent = feelsLike;
+};
+
+export const getCurrentIcon = (weatherData) => {
+  const currentIcon = weatherData.currentConditions.icon;
+  selectWeatherIcon(currentIcon);
 };
