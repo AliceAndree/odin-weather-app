@@ -1,9 +1,13 @@
 import { selectWeatherIcon } from './selectWeatherIcon';
+import { displayUnit } from './displayUnit';
 
-export const getCurrentTemperature = (weatherData) => {
+export const getCurrentTemperature = (weatherData, unit) => {
   const currentTemp = weatherData.currentConditions.temp;
   const currentTempNode = document.querySelector('#current-temperature');
-  currentTempNode.textContent = currentTemp;
+  currentTempNode.textContent = `${Math.round(currentTemp)}°`;
+
+  const unitNode = displayUnit(unit);
+  currentTempNode.appendChild(unitNode);
 };
 
 export const getCurrentCondition = (weatherData) => {
@@ -18,10 +22,13 @@ export const getLocation = (weatherData) => {
   locationNode.textContent = location;
 };
 
-export const getFeelsLike = (weatherData) => {
+export const getFeelsLike = (weatherData, unit) => {
   const feelsLike = weatherData.currentConditions.feelslike;
   const feelsLikeNode = document.querySelector('#feels-like');
-  feelsLikeNode.textContent = feelsLike;
+  feelsLikeNode.textContent = `${Math.round(feelsLike)}°`;
+
+  const unitNode = displayUnit(unit);
+  feelsLikeNode.appendChild(unitNode);
 };
 
 export const getCurrentIcon = (weatherData) => {

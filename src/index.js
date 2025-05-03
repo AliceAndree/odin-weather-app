@@ -17,13 +17,14 @@ const submitLocation = document.querySelector('#submit-location');
 
 submitLocation.addEventListener('click', async () => {
   const location = document.querySelector('#search-location').value;
-  const data = await fetchWeatherData(location);
+  const unit = 'metric';
+  const data = await fetchWeatherData(location, unit);
 
   console.log(data);
-  getCurrentTemperature(data);
+  getCurrentTemperature(data, unit);
   getCurrentCondition(data);
   getLocation(data);
-  getFeelsLike(data);
+  getFeelsLike(data, unit);
   getConditionByHour(data);
   getNextDaysPrevisions(data);
   getCurrentIcon(data);
