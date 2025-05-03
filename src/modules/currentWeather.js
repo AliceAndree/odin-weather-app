@@ -20,6 +20,7 @@ export const getLocation = (weatherData) => {
   const location = weatherData.address;
   const locationNode = document.querySelector('#location');
   locationNode.textContent = location;
+  return location;
 };
 
 export const getFeelsLike = (weatherData, unit) => {
