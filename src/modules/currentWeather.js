@@ -35,9 +35,13 @@ export const getFeelsLike = (weatherData, unit) => {
 export const getCurrentIcon = async (weatherData) => {
   const currentIcon = weatherData.currentConditions.icon;
   const currentIconNode = document.querySelector('#current-icon');
-  const iconSrc = await selectWeatherIcon(currentIcon);
+  try {
+    const iconSrc = await selectWeatherIcon(currentIcon);
 
-  currentIconNode.src = iconSrc.default;
-  currentIconNode.style.width = '250px';
-  currentIconNode.style.height = '250px';
+    currentIconNode.src = iconSrc.default;
+    currentIconNode.style.width = '250px';
+    currentIconNode.style.height = '250px';
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -1,6 +1,4 @@
 import { selectWeatherIcon } from './selectWeatherIcon';
-import { getUnit } from './getUnit';
-import { displayUnit } from './displayUnit';
 
 export const getConditionByHour = (weatherData) => {
   const conditionByHour = weatherData.days[0].hours;
@@ -13,10 +11,6 @@ export const getConditionByHour = (weatherData) => {
     const temp = Math.round(hoursData.temp);
 
     displayConditionByHour(formattedHours, icon, temp);
-
-    console.log(formattedHours);
-    console.log(icon);
-    console.log(temp);
   }
 };
 
@@ -26,13 +20,12 @@ const formatHours = (hoursData) => {
   date.setUTCSeconds(datetimeEpoch);
 
   let formatter = new Intl.DateTimeFormat('en-US', {
-    hour: '2-digit',
+    hour: 'numeric',
     hour12: true,
   });
 
   const formattedDate = formatter.format(date);
-  const formattedHour = formattedDate.replace(/^0(?:0:0?)?/, '');
-  return formattedHour;
+  return formattedDate;
 };
 
 const displayConditionByHour = async (formattedHours, icon, temp) => {

@@ -16,7 +16,12 @@
 body {
   display: flex;
   height: 100svh;
+  overflow: hidden;
   background: var(--gradient-blue);
+}
+
+#wrapper {
+  display: flex;
 }
 
 /* Sidebar */
@@ -25,14 +30,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 350px;
-  height: 100svh;
+  min-width: 350px;
   background-color: var(--transparent-white);
 
   hr {
     width: 100%;
     border: none;
-    border-bottom: solid 1px white;
+    border-bottom: solid 1px var(--transparent-white);
   }
 }
 
@@ -41,7 +45,7 @@ body {
   align-items: center;
   gap: 15px;
   padding: 20px;
-  border-bottom: solid 1px white;
+  border-bottom: solid 2px var(--transparent-white);
 
   img {
     height: 50px;
@@ -127,12 +131,26 @@ input:focus + .slider {
 
 #container {
   padding: 30px;
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 /* Weather Container */
 
 #weather {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Today */
+
+#today {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
 }
 
 /* Current Weather Block*/
@@ -145,7 +163,7 @@ input:focus + .slider {
   padding: 30px;
 
   h1 {
-    font-size: 5.5rem;
+    font-size: 6rem;
 
     span {
       padding: 0 0 0 30px;
@@ -163,9 +181,10 @@ input:focus + .slider {
   display: flex;
   justify-content: center;
   gap: 20px;
-  width: 625px;
+  /* width: 625px; */
   height: 137px;
   padding: 20px;
+  font-weight: 300;
   border-radius: 10px;
   border: solid 1px white;
   background-color: var(--lighter-transparent-white);
@@ -184,4 +203,43 @@ input:focus + .slider {
 
 .hour-temp {
   font-size: 0.875rem;
+}
+
+/* Prevsions Weather Block */
+
+#previsions-weather {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 356px;
+  gap: 5px;
+  padding: 20px;
+  margin: 50px 0 0 0;
+  border-radius: 10px;
+  border: solid 1px white;
+  background-color: var(--lighter-transparent-white);
+
+  hr {
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px var(--transparent-white);
+
+    &:last-of-type {
+      display: none;
+    }
+  }
+}
+
+.previsions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.previsions-data {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }

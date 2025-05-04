@@ -12,26 +12,27 @@ let location = 'brussels';
 
 const sendNewRequest = async (location) => {
   const hoursWeather = document.querySelector('#hours-weather');
+  const previsionsWeather = document.querySelector('#previsions-weather');
   const unit = getUnit();
   hoursWeather.innerHTML = '';
+  previsionsWeather.innerHTML = '';
 
   try {
     const data = await fetchWeatherData(location, unit);
     displayCurrentWeather(data, unit);
     getConditionByHour(data);
     getNextDaysPrevisions(data);
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
 };
 
-submitLocation.addEventListener('click', async () => {
+submitLocation.addEventListener('click', () => {
   location = document.querySelector('#search-location').value;
   sendNewRequest(location);
 });
 
-toggleSwitch.addEventListener('change', async () => {
+toggleSwitch.addEventListener('change', () => {
   sendNewRequest(location);
 });
 

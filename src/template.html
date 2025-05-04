@@ -10,45 +10,47 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="sidebar">
-      <div id="title">
-        <img id="logo" src="#" alt="" />
-        <h1>Weather App</h1>
-      </div>
-      <div id="searchbar">
-        <input
-          type="search"
-          name="search-location"
-          id="search-location"
-          placeholder="Search"
-        />
-        <button id="submit-location">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
-      <hr />
-    </div>
-    <div id="container">
-      <div id="top-widgets">
-        <label class="switch">
-          <input id="toggle" type="checkbox" />
-          <span class="slider round"></span>
-        </label>
-      </div>
-      <div id="weather">
-        <div id="today">
-          <div id="current-weather">
-            <div id="weather-data">
-              <h1 id="current-temperature"></h1>
-              <h5 id="current-condition"></h5>
-              <h5 id="location"></h5>
-              <h5 id="feels-like"></h5>
-            </div>
-            <img id="current-icon" src="#" alt="" />
-          </div>
-          <div id="hours-weather"></div>
+    <div id="wrapper">
+      <div id="sidebar">
+        <div id="title">
+          <img id="logo" src="#" alt="" />
+          <h1>Weather App</h1>
         </div>
-        <div id="previsions-weather"></div>
+        <div id="searchbar">
+          <input
+            type="search"
+            name="search-location"
+            id="search-location"
+            placeholder="Search location"
+          />
+          <button id="submit-location">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <hr />
+      </div>
+      <div id="container">
+        <div id="top-widgets">
+          <label class="switch">
+            <input id="toggle" type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div id="weather">
+          <div id="today">
+            <div id="current-weather">
+              <div id="weather-data">
+                <h1 id="current-temperature"></h1>
+                <h5 id="current-condition"></h5>
+                <h5 id="location"></h5>
+                <h5 id="feels-like"></h5>
+              </div>
+              <img id="current-icon" src="#" alt="" />
+            </div>
+            <div id="hours-weather"></div>
+          </div>
+          <div id="previsions-weather"></div>
+        </div>
       </div>
     </div>
   </body>

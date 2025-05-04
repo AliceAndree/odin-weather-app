@@ -1,4 +1,8 @@
 export const selectWeatherIcon = async (icon) => {
-  const iconSrc = await import(`../assets/icons/${icon}.svg`);
-  return iconSrc;
+  try {
+    const iconSrc = await import(`../assets/icons/${icon}.svg`);
+    return iconSrc;
+  } catch (error) {
+    console.log(error);
+  }
 };
