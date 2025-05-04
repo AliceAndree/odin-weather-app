@@ -8,6 +8,13 @@ import { getNextDaysPrevisions } from './modules/nextDaysPrevisions';
 
 const submitLocation = document.querySelector('#submit-location');
 const toggleSwitch = document.querySelector('#toggle');
+const burgerMenu = document.querySelector('#burger-menu');
+const body = document.querySelector('body');
+const wrapper = document.querySelector('#wrapper');
+const sidebar = document.querySelector('#sidebar');
+const container = document.querySelector('#container');
+const iconClose = document.querySelector('#icon-close');
+
 let location = 'brussels';
 
 const sendNewRequest = async (location) => {
@@ -34,6 +41,24 @@ submitLocation.addEventListener('click', () => {
 
 toggleSwitch.addEventListener('change', () => {
   sendNewRequest(location);
+});
+
+burgerMenu.addEventListener('click', () => {
+  body.style.width = '100svw';
+  wrapper.style.width = '100%';
+  sidebar.style.width = '100%';
+  sidebar.style.display = 'flex';
+  container.style.display = 'none';
+  iconClose.style.display = 'flex';
+});
+
+iconClose.addEventListener('click', () => {
+  body.style.width = 'unset';
+  wrapper.style.width = 'unset';
+  sidebar.style.width = 'unset';
+  sidebar.style.display = 'none';
+  container.style.display = 'block';
+  iconClose.style.display = 'none';
 });
 
 displayLogo();
