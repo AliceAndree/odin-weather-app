@@ -27,12 +27,12 @@ const formatHours = (hoursData) => {
 
   let formatter = new Intl.DateTimeFormat('en-US', {
     hour: '2-digit',
-    minute: '2-digit',
     hour12: true,
   });
 
   const formattedDate = formatter.format(date);
-  return formattedDate;
+  const formattedHour = formattedDate.replace(/^0(?:0:0?)?/, '');
+  return formattedHour;
 };
 
 const displayConditionByHour = async (formattedHours, icon, temp) => {
@@ -42,8 +42,6 @@ const displayConditionByHour = async (formattedHours, icon, temp) => {
   const iconNode = document.createElement('img');
   const iconSrc = await selectWeatherIcon(icon);
   const tempNode = document.createElement('div');
-  const unit = getUnit();
-  const unitNode = displayUnit(unit);
 
   hourCardNode.classList.add('hour-card');
   hourNode.classList.add('hour');
@@ -53,10 +51,9 @@ const displayConditionByHour = async (formattedHours, icon, temp) => {
   hourNode.textContent = formattedHours;
   iconNode.src = iconSrc.default;
   tempNode.textContent = `${temp}°`;
-  tempNode.appendChild(unitNode);
 
-  iconNode.style.width = '60px';
-  iconNode.style.height = '60px';
+  iconNode.style.width = '56px';
+  iconNode.style.height = '56px';
 
   hourCardNode.appendChild(hourNode);
   hourCardNode.appendChild(iconNode);

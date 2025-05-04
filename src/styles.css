@@ -1,4 +1,5 @@
 @import './reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
   --gradient-blue: linear-gradient(
@@ -6,8 +7,10 @@
     hsla(201, 77%, 75%, 1) 0%,
     hsla(173, 48%, 83%, 1) 100%
   );
-
   --transparent-white: hsla(0, 0%, 100%, 0.4);
+  --lighter-transparent-white: hsla(0, 0%, 100%, 0.25);
+  --inter: 'Inter', sans-serif;
+  font-family: var(--inter);
 }
 
 body {
@@ -23,6 +26,7 @@ body {
   flex-direction: column;
   gap: 20px;
   width: 350px;
+  height: 100svh;
   background-color: var(--transparent-white);
 
   hr {
@@ -119,6 +123,18 @@ input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
 }
 
+/* Main Container */
+
+#container {
+  padding: 30px;
+}
+
+/* Weather Container */
+
+#weather {
+  display: flex;
+}
+
 /* Current Weather Block*/
 
 #current-weather {
@@ -126,6 +142,7 @@ input:focus + .slider {
   justify-content: space-between;
   align-items: center;
   width: 625px;
+  padding: 30px;
 
   h1 {
     font-size: 5.5rem;
@@ -134,17 +151,37 @@ input:focus + .slider {
       padding: 0 0 0 30px;
     }
   }
+
+  h5 {
+    font-weight: 300;
+  }
 }
 
 /* Hours Weather */
 
 #hours-weather {
   display: flex;
-  gap: 30px;
+  justify-content: center;
+  gap: 20px;
+  width: 625px;
+  height: 137px;
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 1px white;
+  background-color: var(--lighter-transparent-white);
 }
 
 .hour-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.hour {
+  font-size: 0.75rem;
+  text-transform: lowercase;
+}
+
+.hour-temp {
+  font-size: 0.875rem;
 }
