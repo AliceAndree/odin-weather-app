@@ -11,7 +11,9 @@ const toggleSwitch = document.querySelector('#toggle');
 let location = 'brussels';
 
 const sendNewRequest = async (location) => {
+  const hoursWeather = document.querySelector('#hours-weather');
   const unit = getUnit();
+  hoursWeather.innerHTML = '';
 
   try {
     const data = await fetchWeatherData(location, unit);
