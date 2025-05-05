@@ -7,6 +7,7 @@ import { displayCurrentWeather } from './modules/displayCurrentWeather';
 import { getConditionByHour } from './modules/conditionByHour';
 import { getNextDaysPrevisions } from './modules/nextDaysPrevisions';
 import { autocompleteLocation } from './modules/geocoderAutocompleteAPI';
+import { addFavicon } from './modules/addFavicon';
 
 const toggleSwitch = document.querySelector('#toggle');
 const burgerMenu = document.querySelector('#burger-menu');
@@ -81,6 +82,7 @@ iconClose.addEventListener('click', () => {
   iconClose.style.display = 'none';
 });
 
+addFavicon();
 displayLogo();
 getIpLocation();
 autocompleteCity();
