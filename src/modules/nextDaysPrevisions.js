@@ -7,7 +7,6 @@ export const getNextDaysPrevisions = (weatherData) => {
 
   for (let i = 0; i < 8; i++) {
     const dayData = nextDaysPrevisions[i];
-    console.log(dayData);
     const date = formatDate(dayData);
     const minTemp = dayData.tempmin;
     const maxTemp = dayData.tempmax;

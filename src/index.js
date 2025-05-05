@@ -1,4 +1,5 @@
 import './styles.css';
+import { fetchIPlocation } from './modules/ipGeolocation';
 import { displayLogo } from './modules/displayLogo';
 import { getUnit } from './modules/getUnit';
 import { fetchWeatherData } from './modules/weatherAPI';
@@ -15,9 +16,17 @@ const sidebar = document.querySelector('#sidebar');
 const container = document.querySelector('#container');
 const iconClose = document.querySelector('#icon-close');
 
-let location = 'brussels';
+let location;
+let country;
 
-const sendNewRequest = async (location) => {
+const getIpLocation = async () => {
+  const ipLocationDatas = await fetchIPlocation();
+  location = ipLocationDatas.city.name;
+  country = ipLocationDatas.country.name;
+  sendNewRequest(location, country);
+};
+
+const sendNewRequest = async (location, country) => {
   const hoursWeather = document.querySelector('#hours-weather');
   const previsionsWeather = document.querySelector('#previsions-weather');
   const unit = getUnit();
@@ -26,7 +35,7 @@ const sendNewRequest = async (location) => {
 
   try {
     const data = await fetchWeatherData(location, unit);
-    displayCurrentWeather(data, unit);
+    displayCurrentWeather(data, unit, location, country);
     getConditionByHour(data);
     getNextDaysPrevisions(data);
   } catch (error) {
@@ -36,11 +45,12 @@ const sendNewRequest = async (location) => {
 
 submitLocation.addEventListener('click', () => {
   location = document.querySelector('#search-location').value;
-  sendNewRequest(location);
+  country = '';
+  sendNewRequest(location, country);
 });
 
 toggleSwitch.addEventListener('change', () => {
-  sendNewRequest(location);
+  sendNewRequest(location, country);
 });
 
 burgerMenu.addEventListener('click', () => {
@@ -62,4 +72,4 @@ iconClose.addEventListener('click', () => {
 });
 
 displayLogo();
-sendNewRequest(location);
+getIpLocation();

@@ -16,10 +16,9 @@ export const getCurrentCondition = (weatherData) => {
   currentConditionNode.textContent = currentCondition;
 };
 
-export const getLocation = (weatherData) => {
-  const location = weatherData.address;
+export const getLocation = (location, country) => {
   const locationNode = document.querySelector('#location');
-  locationNode.textContent = location;
+  locationNode.textContent = `${location}, ${country}`;
   return location;
 };
 
