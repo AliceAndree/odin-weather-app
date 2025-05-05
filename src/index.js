@@ -6,8 +6,8 @@ import { fetchWeatherData } from './modules/weatherAPI';
 import { displayCurrentWeather } from './modules/displayCurrentWeather';
 import { getConditionByHour } from './modules/conditionByHour';
 import { getNextDaysPrevisions } from './modules/nextDaysPrevisions';
+import { autocompleteLocation } from './modules/geocoderAutocompleteAPI';
 
-const submitLocation = document.querySelector('#submit-location');
 const toggleSwitch = document.querySelector('#toggle');
 const burgerMenu = document.querySelector('#burger-menu');
 const body = document.querySelector('body');
@@ -26,7 +26,7 @@ const getIpLocation = async () => {
   sendNewRequest(location, country);
 };
 
-const sendNewRequest = async (location, country) => {
+export const sendNewRequest = async (location, country) => {
   const hoursWeather = document.querySelector('#hours-weather');
   const previsionsWeather = document.querySelector('#previsions-weather');
   const unit = getUnit();
@@ -43,11 +43,21 @@ const sendNewRequest = async (location, country) => {
   }
 };
 
-submitLocation.addEventListener('click', () => {
-  location = document.querySelector('#search-location').value;
-  country = '';
-  sendNewRequest(location, country);
-});
+const autocompleteCity = async () => {
+  try {
+    const autocomplete = await autocompleteLocation();
+
+    autocomplete.on('select', (data) => {
+      if (data) {
+        location = data.properties.city;
+        country = data.properties.country;
+        sendNewRequest(location, country);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 toggleSwitch.addEventListener('change', () => {
   sendNewRequest(location, country);
@@ -73,3 +83,4 @@ iconClose.addEventListener('click', () => {
 
 displayLogo();
 getIpLocation();
+autocompleteCity();

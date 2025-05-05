@@ -6,7 +6,6 @@ export const fetchIPlocation = async () => {
       { mode: 'cors' },
     );
     const ipGeolocation = await response.json();
-    console.log(ipGeolocation);
     return ipGeolocation;
   } catch (error) {
     console.log(error);

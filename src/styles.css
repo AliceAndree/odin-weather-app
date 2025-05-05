@@ -1,5 +1,6 @@
 @import './reset.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import '~@geoapify/geocoder-autocomplete/styles/round-borders.css';
 
 :root {
   --gradient-blue: linear-gradient(
@@ -76,11 +77,21 @@ body {
   }
 }
 
+.autocomplete-container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.geoapify-autocomplete-input,
+.geoapify-autocomplete-items {
+  border-radius: 10px;
+}
+
 #searchbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
   width: 310px;
   height: 85px;
   background-color: var(--transparent-white);
